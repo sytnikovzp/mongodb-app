@@ -1,0 +1,314 @@
+use('users');
+
+// const users = [
+//   {
+//     firstName: 'Nick',
+//     lastName: 'Myson',
+//     age: 50,
+//     address: {
+//       country: 'USA',
+//       city: 'New York',
+//       street: 'Wholt Street',
+//       building: '722',
+//       app: '250',
+//       zipcode: 10020,
+//     },
+//     p_langs: ['JS', 'C#', 'Java'],
+//   },
+//   {
+//     firstName: 'Nick',
+//     lastName: 'Myson',
+//     age: 50,
+//     address: {
+//       country: 'USA',
+//       city: 'New York',
+//       street: 'Wholt Street',
+//       building: '722',
+//       app: '250',
+//       zipcode: 10020,
+//     },
+//     p_langs: ['JS', 'C#', 'Java'],
+//   },
+//   {
+//     firstName: 'Harry',
+//     lastName: 'Porter',
+//     age: 45,
+//     address: {
+//       country: 'Great Britain',
+//       city: 'Manchester',
+//       street: 'Robin Hood',
+//       building: '320d',
+//       zipcode: 1605,
+//       app: '120',
+//     },
+//     p_langs: ['JS', 'Python', 'Java'],
+//   },
+//   {
+//     firstName: 'Ken',
+//     lastName: 'Hensly',
+//     age: 70,
+//     address: {
+//       country: 'Great Britain',
+//       city: 'London',
+//       street: 'Backer Street',
+//       zipcode: 5208,
+//     },
+//     p_langs: ['JS', 'Kotlin', 'SQL'],
+//   },
+//   {
+//     firstName: 'Mike',
+//     lastName: 'Tyson',
+//     age: 50,
+//     address: {
+//       country: 'USA',
+//       city: 'Washington',
+//       street: 'Wholt Street',
+//       building: '20 b',
+//       app: '120',
+//       zipcode: 98002,
+//     },
+//     p_langs: ['HTML', 'CSS', 'XML'],
+//   },
+//   {
+//     firstName: 'Michael',
+//     lastName: 'Jordan',
+//     age: 45,
+//     address: {
+//       country: 'USA',
+//       city: 'Chicago',
+//       street: 'Rusvelt Teodor',
+//       building: '20 b',
+//       app: '120',
+//       zipcode: 60176,
+//     },
+//     p_langs: ['Scala', 'Go', 'Ruby'],
+//   },
+//   {
+//     firstName: 'Paul',
+//     lastName: 'MacCartney',
+//     age: 70,
+//     address: {
+//       country: 'Great Britain',
+//       city: 'London',
+//       street: 'Trafalgar squear',
+//     },
+//     p_langs: ['Ruby', 'Python', 'Pascal'],
+//   },
+//   {
+//     firstName: 'Jhon',
+//     lastName: 'Doe',
+//     age: 30,
+//     address: {
+//       country: 'Ukraine',
+//       city: 'Dnipro',
+//       street: 'Yavornitskogo',
+//       building: '18b',
+//       app: '120',
+//       zipcode: 49130,
+//     },
+//     p_langs: ['JS', 'Python', 'Algol67'],
+//   },
+//   {
+//     firstName: 'Jane',
+//     lastName: 'Smith',
+//     age: 25,
+//     address: {
+//       country: 'Ukraine',
+//       city: 'Zaporizhzhia',
+//       street: 'Svobody',
+//       building: '20 b',
+//       app: '120',
+//       zipcode: 69061,
+//     },
+//     p_langs: ['CoffeeScript', 'Java', 'Fortran'],
+//   },
+//   {
+//     firstName: 'Benya',
+//     lastName: 'Crick',
+//     age: 40,
+//     address: {
+//       country: 'Ukraine',
+//       city: 'Odessa',
+//       street: 'Deribasovskaya',
+//       building: '20 b',
+//       app: '120',
+//       zipcode: 65125,
+//     },
+//     p_langs: ['Python', 'Assembler', 'Java'],
+//   },
+// ];
+
+// const hp = {
+//   firstName: 'Harry',
+//   lastName: 'Porter',
+//   age: 45,
+//   address: {
+//     country: 'Great Britain',
+//     city: 'Manchester',
+//     street: 'Robin Hood',
+//     building: '320d',
+//     zipcode: 1605,
+//     app: '120',
+//   },
+//   p_langs: ['JS', 'Python', 'Java'],
+// };
+
+// ==== Create ====
+
+// db.customers.insertOne(hp);
+// db.customers.insertMany(users);
+
+// ==== Read =====
+
+// db.customers.find();
+// db.customers.find({ age: 45 });
+// db.customers.find({ 'address.country': 'Ukraine' });
+// db.customers.find({ 'address.country': /^U/ });
+// db.customers.find({ firstName: { $in: ['Jane', 'Jhon'] } });
+// db.customers.find({ 'address.zipcode': { $gte: 35000 } });
+// db.customers.find({ firstName: { $nin: ['Jane', 'Jhon'] } });
+// db.customers.find({ $or: [{ firstName: /^M/ }, { age: { $gte: 40 } }] });
+// db.customers.find({ p_langs: ['JS', 'C#', 'Java'] });
+// db.customers.find({ p_langs: { $all: ['JS', 'Python'] } });
+// db.customers.find().sort({ 'address.country': -1 });
+// db.customers.find().sort({ 'address.country': -1, age: 1 }).limit(3).skip(1);
+
+// db.customers
+//   .find({}, { firstName: 1, lastName: 1, age: 1, _id: 0 })
+//   .sort({ 'address.country': -1, age: 1 })
+//   .limit(3)
+//   .skip(1);
+
+// db.customers.find({ firstName: /^J/ });
+
+// db.customers.find(
+//   { 'address.city': 'London' },
+//   { firstName: 1, lastName: 1, _id: 0 }
+// );
+
+// db.customers.find(
+//   { $or: [{ age: { $gt: 40 } }, { 'address.country': 'Great Britain' }] },
+//   { firstName: 1, lastName: 1, _id: 0 }
+// );
+
+// db.customers.find(
+//   { p_langs: { $all: ['JS', 'Python'] } },
+//   { firstName: 1, 'address.country': 1, _id: 0 }
+// );
+
+// ==== Update =====
+
+// db.customers.updateMany({}, { $rename: { prog_langs: 'p_langs' } });
+
+// db.customers.updateMany(
+//   { 'address.country': 'Great Britain' },
+//   { $set: { 'address.city': 'Liverpool' } },
+//   { upsert: true }
+// );
+
+// db.customers.updateMany(
+//   { firstName: /^J/ },
+//   { $unset: { age: false } },
+//   {
+//     upsert: true,
+//   }
+// );
+
+// db.customers.find({ firstName: /^J/ });
+
+// db.customers.deleteMany({
+//   $or: [{ p_langs: { $all: ['Fortran'] } }, { p_langs: { $all: ['Algol67'] } }],
+// });
+
+// db.customers.find({ p_langs: { $elemMatch: { $in: ['Fortran', 'Algol67'] } } });
+
+// ==== Methods of collection =====
+
+// db.customers.distinct('firstName');
+// db.customers.distinct('address.country');
+// db.customers.count({ 'address.country': 'USA' });
+// db.customers.countDocuments({ 'address.city': 'Liverpool' });
+// db.customers.find().count();
+
+// ==== For Roles collection =====
+
+// const roles = [
+//   {
+//     type: 'Admin',
+//   },
+//   {
+//     type: 'Moderator',
+//   },
+//   {
+//     type: 'User',
+//   },
+// ];
+
+// db.roles.insertMany(roles);
+// db.roles.find();
+
+// "$oid": "66c46eb0328634a9ab5eea20"
+// "type": "Admin"
+// "$oid": "66c46eb0328634a9ab5eea21"
+// "type": "Moderator"
+// "$oid": "66c46eb0328634a9ab5eea22"
+// "type": "User"
+
+// db.customers.updateMany(
+//   { 'address.country': 'USA' },
+//   { $set: { roleId: ObjectId('66c46eb0328634a9ab5eea22') } }
+// );
+
+// db.customers.updateMany(
+//   { 'address.country': 'Great Britain' },
+//   { $set: { roleId: ObjectId('66c46eb0328634a9ab5eea21') } }
+// );
+
+// db.customers.updateMany(
+//   { 'address.country': 'Ukraine' },
+//   { $set: { roleId: ObjectId('66c46eb0328634a9ab5eea20') } }
+// );
+
+// ==== Agregate pipeline ====
+
+// db.customers.aggregate([
+//   // { $match: { 'address.country': 'Great Britain' } },
+//   { $match: { firstName: /^J/ } },
+//   {
+//     $group: {
+//       // _id: '$address.city',
+//       _id: '$address.country',
+//       totalAmount: { $count: {} },
+//     },
+//   },
+// ]);
+
+// db.customers.aggregate([
+//   { $match: { 'address.country': /^(u|g)/i } },
+//   {
+//     $lookup: {
+//       from: 'roles',
+//       localField: 'roleId',
+//       foreignField: '_id',
+//       as: 'customerRole',
+//     },
+//   },
+//   {
+//     $project: {
+//       firstName: 1,
+//       lastName: 1,
+//       customerRole: 1,
+//       _id: 0,
+//     },
+//   },
+// ]);
+
+// db.customers.aggregate([
+//   // { $match: { 'address.country': 'Great Britain' } },
+//   {
+//     $group: {
+//       _id: '$address.country',
+//       maxAge: { $max: '$age' },
+//     },
+//   },
+// ]);
