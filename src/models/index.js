@@ -26,7 +26,7 @@ fs.readdirSync(__dirname)
   })
   .forEach((file) => {
     const model = require(path.join(__dirname, file));
-    dbMongo[model.modelname] = model;
+    dbMongo[model.modelName] = model;
   });
 
 dbMongo.mongoose = mongoose;

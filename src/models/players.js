@@ -14,6 +14,12 @@ const playerSchema = new Schema(
     },
     age: {
       type: Number,
+      min: 8,
+    },
+    rate: {
+      type: Number,
+      min: 0,
+      max: 100,
     },
     address: {
       country: String,

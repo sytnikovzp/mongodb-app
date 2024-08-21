@@ -3,6 +3,7 @@ module.exports.players = [
     firstName: 'Ma',
     lastName: 'Long',
     age: 35,
+    rate: 95,
     address: {
       country: 'China',
       city: 'Anshan',
@@ -14,6 +15,7 @@ module.exports.players = [
     firstName: 'Dimitrij',
     lastName: 'Ovtcharov',
     age: 35,
+    rate: 85,
     address: {
       country: 'Germany',
       city: 'Berlin',
@@ -25,6 +27,7 @@ module.exports.players = [
     firstName: 'Hugo',
     lastName: 'Calderano',
     age: 27,
+    rate: 90,
     address: {
       country: 'Brasil',
       city: 'Rio de Janeiro',
@@ -36,6 +39,7 @@ module.exports.players = [
     firstName: 'Tomokazu',
     lastName: 'Harimoto',
     age: 20,
+    rate: 92,
     address: {
       country: 'Japan',
       city: 'Sendai',
@@ -47,6 +51,7 @@ module.exports.players = [
     firstName: 'Margarita',
     lastName: 'Pesockaya',
     age: 32,
+    rate: 50,
     address: {
       country: 'Ukraine',
       city: 'Kiev',
@@ -58,11 +63,27 @@ module.exports.players = [
     firstName: 'Yaroslav',
     lastName: 'Zhmudenko',
     age: 35,
+    rate: 35,
     address: {
       country: 'Ukraine',
       city: 'Uman',
       zipcode: 20300,
     },
     brands: ['Donic', 'Stiga', 'Xiom'],
+  },
+];
+
+module.exports.roles = [
+  {
+    role: 'Guru',
+    email: 'guru@gmail.com',
+  },
+  {
+    role: 'Profi',
+    email: 'profi@gmail.com',
+  },
+  {
+    role: 'Amator',
+    email: 'amator@gmail.com',
   },
 ];
