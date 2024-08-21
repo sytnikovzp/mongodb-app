@@ -11,17 +11,17 @@ const config = require(pathToConfig)[env];
 
 mongoose
   .connect(`mongodb://${config.host}:${config.port}/${config.dbName}`)
-  .then(() => console.log(`Connection to DB ${config.dbName} is done`))
-  .catch((error) => console.log(error.message));
+  .then(() => console.log(`Connection to DB <<< ${config.dbName} >>> is done`))
+  .catch((err) => console.log(err));
 
 const dbMongo = {};
 
 fs.readdirSync(__dirname)
-  .filter((filename) => {
+  .filter((fileName) => {
     return (
-      filename.indexOf('.') !== 0 &&
-      filename !== basename &&
-      filename.slice(-3) === '.js'
+      fileName.indexOf('.') !== 0 &&
+      fileName !== basename &&
+      fileName.slice(-3) === '.js'
     );
   })
   .forEach((file) => {

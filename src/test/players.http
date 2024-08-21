@@ -1,0 +1,44 @@
+GET http://localhost:5000/api/players?page=1&result=10 HTTP/1.1
+Content-Type: application/json
+
+###
+
+GET http://localhost:5000/api/players/66c4d8acab34b46d6e70a538 HTTP/1.1
+Content-Type: application/json
+
+###
+
+GET http://localhost:5000/api/players/age/30 HTTP/1.1
+Content-Type: application/json
+
+###
+
+POST http://localhost:5000/api/players HTTP/1.1
+Content-Type: application/json
+
+{
+		"firstName": "Fan",
+		"lastName": "Zhendong",
+		"age": 27,
+		"rate": 99,
+		"address": {
+			"country": "China",
+			"city": "Guanzhgou",
+			"zipcode": 20300
+		},
+		"brands": ["DHS", "Stiga", "Xiom"]
+	}
+
+###
+
+PATCH http://localhost:5000/api/players/roles HTTP/1.1
+Content-Type: application/json
+
+{
+  "roleId": "66c5ae10332210c8dceda7d4",
+  "rate": 51
+}
+
+###
+
+DELETE http://localhost:5000/api/players/66c4d8acab34b46d6e70a53b HTTP/1.1

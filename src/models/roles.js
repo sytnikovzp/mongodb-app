@@ -16,11 +16,14 @@ const roleSchema = new Schema(
       type: String,
       unique: true,
       validate: {
-        validator: (value) => EMAIL_VALIDATION_SCHEMA.isValid(value),
+        validator: (value) => EMAIL_VALIDATION_SCHEMA.isValidSync(value),
       },
     },
   },
-  { timestamps: true, versionKey: false }
+  {
+    timestamps: true,
+    versionKey: false,
+  }
 );
 
 const Role = mongoose.model('Role', roleSchema);

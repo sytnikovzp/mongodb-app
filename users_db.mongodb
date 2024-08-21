@@ -1,4 +1,4 @@
-use('users');
+// use('users');
 
 // const users = [
 //   {
@@ -312,3 +312,26 @@ use('users');
 //     },
 //   },
 // ]);
+
+use('players');
+
+db.players.aggregate([
+  {
+    $lookup: {
+      from: 'roles',
+      localField: 'roleId',
+      foreignField: '_id',
+      as: 'playerRole',
+    },
+  },
+  {
+    $project: {
+      firstName: 1,
+      lastName: 1,
+      playerRole: {
+        role: 1,
+      },
+      _id: 0,
+    },
+  },
+]);
